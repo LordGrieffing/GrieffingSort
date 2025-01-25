@@ -1,0 +1,8 @@
+README.md
+setup.py
+GrieffSort.egg-info/PKG-INFO
+GrieffSort.egg-info/SOURCES.txt
+GrieffSort.egg-info/dependency_links.txt
+GrieffSort.egg-info/top_level.txt
+GrieffingSort/GriefSortMain.py
+GrieffingSort/__init__.py
