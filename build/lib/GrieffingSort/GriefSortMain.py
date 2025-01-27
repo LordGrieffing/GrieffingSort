@@ -100,7 +100,7 @@ def merge(arr1, arr2):
 
     return sortedArray
 
-def countSort(inputArray):
+def countSortSlow(inputArray):
     '''
     Sorts in ascending order an array of positive integers using countSort
 
@@ -155,4 +155,64 @@ def countSort(inputArray):
 
     return sortedArray
 
-        
+def countSort(inputArray):
+    '''
+    Sorts in ascending order an array of positive integers using countSort
+
+    :param inputArray: an array of positive integers
+    :return: an array of integers sorted in ascending order
+    '''
+
+
+    #Find the max number
+    maxNum = max(inputArray)
+
+    #Generate Arrays we will be using
+    tallyArray = [0] * (maxNum + 1)
+    sortedArray = [0] * len(inputArray)
+
+    #Construct tallyArray
+    for num in inputArray:
+        tallyArray[num] += 1
+
+    #Sums the occurances
+    for i in range(1, len(tallyArray)):
+        tallyArray[i] = tallyArray[i - 1]
+
+    #Place elements into their correct positions in the sorted array
+    for num in reversed(inputArray):
+        position = tallyArray[num] - 1
+        sortedArray[position] = num
+        tallyArray[num] -= 1
+
+    return sortedArray
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
