@@ -1,1 +1,1 @@
-from .GriefSortMain import bubbleSort, insertionSort, mergeSort, countSort
+from .GriefSortMain import bubbleSort, insertionSort, mergeSort, countSort, quickSort

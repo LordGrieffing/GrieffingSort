@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+from random import randint
 
 
 def bubbleSort(inputArray):
@@ -187,6 +187,38 @@ def countSort(inputArray):
 
     return sortedArray
 
+def quickSort(inputArray):
+    '''
+    Sorts in ascending order an array of postive integers using quickSort
+
+    :param inputArray: an array of positive integers
+    :return: an array of integers sorted in ascending order
+    '''
+    
+    #Best case scenario and the array is of size 1
+    if len(inputArray) <= 1:
+        return inputArray
+    
+    #Get the pivot
+    pivotPosition = randint(0, (len(inputArray)-1))
+    pivot = inputArray[pivotPosition]
+
+    #Begin sorting around the pivot
+    left = []
+    right = []
+
+    for i in range(len(inputArray)):
+
+        if i == pivotPosition:
+            pass
+        elif inputArray[i] > pivot:
+            right.append(inputArray[i])
+        elif inputArray[i] <= pivot:
+            left.append(inputArray[i])
+
+    inputArray = quickSort(left) + [pivot] + quickSort(right)
+
+    return inputArray
 
 
 
