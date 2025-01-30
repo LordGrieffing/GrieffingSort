@@ -222,6 +222,61 @@ def quickSort(inputArray):
 
 
 
+def heapify(inputArray, idx, size):
+
+    largest = idx
+    left = 2 * idx + 1
+    right = 2 * idx + 2
+
+    if left < size and inputArray[left] > inputArray[largest]:
+        largest = left
+
+    if right < size and inputArray[right] > inputArray[largest]:
+        largest = right
+
+    if largest != idx:
+        inputArray[idx], inputArray[largest] = inputArray[largest], inputArray[idx]
+
+
+        heapify(inputArray, largest, size)
+
+    
+def buildHeap(inputArray):
+
+    size = len(inputArray)
+    startIdx = size//2 -1
+
+
+    for i in range(startIdx, -1, -1):
+        heapify(inputArray, i, size)
+
+    return inputArray
+
+
+def heapSort(inputArray):
+    '''
+    Sorts in ascending order an array of postive integers using heapSort
+
+    :param inputArray: an array of positive integers
+    :return: an array of integers sorted in ascending order
+    '''
+
+    #Build heap
+    inputArray = buildHeap(inputArray)
+
+    length = len(inputArray)
+
+    for i in range(length-1, 0, -1):
+        
+        inputArray[0], inputArray[i] = inputArray[i], inputArray[0]
+
+        heapify(inputArray, 0, i)
+    
+    return inputArray
+
+
+
+
 
 
 
